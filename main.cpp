@@ -51,7 +51,9 @@ void UniformReservoirSampling()
     printf("\r100%%\n");
 
     FILE* file = nullptr;
-    fopen_s(&file, "out/" __FUNCTION__ ".csv", "wb");
+    char fileName[1024];
+    sprintf_s(fileName, "out/" __FUNCTION__ "_%zu.csv", c_numTests);
+    fopen_s(&file, fileName, "wb");
     fprintf(file, "\"Value\",\"Expected Count\",\"Actual Count\"\n");
     for (size_t itemIndex = 0; itemIndex < c_numItems; ++itemIndex)
         fprintf(file, "\"%zu\",\"%zu\",\"%zu\"\n", itemIndex, c_numTests / c_numItems, histogram[itemIndex]);
@@ -97,7 +99,9 @@ void SubsetUniformReservoirSampling()
     printf("\r100%%\n");
 
     FILE* file = nullptr;
-    fopen_s(&file, "out/" __FUNCTION__ ".csv", "wb");
+    char fileName[1024];
+    sprintf_s(fileName, "out/" __FUNCTION__ "_%zu.csv", c_numTests);
+    fopen_s(&file, fileName, "wb");
     fprintf(file, "\"Value\",\"Expected Count\",\"Actual Count\"\n");
     for (size_t itemIndex = 0; itemIndex < c_numItems; ++itemIndex)
         fprintf(file, "\"%zu\",\"%zu\",\"%zu\"\n", itemIndex, c_numTests / c_numItems, histogram[itemIndex]);
@@ -151,7 +155,9 @@ void WeightedReservoirSampling()
     printf("\r100%%\n");
 
     FILE* file = nullptr;
-    fopen_s(&file, "out/" __FUNCTION__ ".csv", "wb");
+    char fileName[1024];
+    sprintf_s(fileName, "out/" __FUNCTION__ "_%zu.csv", c_numTests);
+    fopen_s(&file, fileName, "wb");
     fprintf(file, "\"Value\",\"Expected Count\",\"Actual Count\"\n");
     for (size_t itemIndex = 0; itemIndex < c_numItems; ++itemIndex)
         fprintf(file, "\"%zu\",\"%zu\",\"%zu\"\n", itemIndex, size_t(PMFs[itemIndex] * float(c_numTests)), histogram[itemIndex]);
@@ -214,7 +220,9 @@ void SubsetWeightedReservoirSampling()
     printf("\r100%%\n");
 
     FILE* file = nullptr;
-    fopen_s(&file, "out/" __FUNCTION__ ".csv", "wb");
+    char fileName[1024];
+    sprintf_s(fileName, "out/" __FUNCTION__ "_%zu.csv", c_numTests);
+    fopen_s(&file, fileName, "wb");
     fprintf(file, "\"Value\",\"Expected Count\",\"Actual Count\"\n");
     for (size_t itemIndex = 0; itemIndex < c_numItems; ++itemIndex)
     {
